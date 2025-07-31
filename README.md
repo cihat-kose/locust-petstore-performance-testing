@@ -33,12 +33,10 @@ A Locust-based project designed to perform load and stress testing on the [Swagg
 locust-petstore-performance-testing/
 ├── locustfile.py            # Locust task definitions
 ├── requirements.txt         # Python dependencies
-├── README.md                # Project documentation
-└── reports/                 # Test reports and CSV files
-    ├── report_1735264922.html
-    ├── failures_1735265107.csv
-    ├── exceptions_1735265110.csv
-    └── requests_1735265102.csv
+└── README.md                # Project documentation
+
+# Generated after running tests
+reports/
 ```
 
 ---
@@ -68,8 +66,11 @@ locust-petstore-performance-testing/
 
 ### Running the Locust Test
 
-1. **Start Locust**  
+1. **Start Locust**
    ```bash
+   # optional: customise target host and username
+   export TARGET_HOST=https://petstore.swagger.io
+   export TEST_USER=myuser
    locust -f locustfile.py
    ```
 
@@ -130,17 +131,10 @@ locust-petstore-performance-testing/
 
 ## 📊 Results and Reports
 
-After executing tests, results can be found in the `reports/` directory. The Locust web interface also provides real-time data:  
-- **Requests per second (RPS)**  
-- **Response time distribution**  
-- **Failures and exceptions**  
-
-### 📂 Example Reports
-
-- [Full Test Report (HTML)](./reports/report_1735264922.html)  
-- [Failures (CSV)](./reports/failures_1735265107.csv)  
-- [Exceptions (CSV)](./reports/exceptions_1735265110.csv)  
-- [Request Stats (CSV)](./reports/requests_1735265102.csv)  
+After executing tests, results are stored in the `reports/` directory (which is generated automatically). The Locust web interface also provides real-time metrics:
+- **Requests per second (RPS)**
+- **Response time distribution**
+- **Failures and exceptions**
 
 ---
 

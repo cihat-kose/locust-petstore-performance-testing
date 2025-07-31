@@ -1,3 +1,0 @@
-Method,Name,Error,Occurrences
-GET,/v2/user/denemekullanici,HTTPError('404 Client Error: Not Found for url: /v2/user/denemekullanici'),4046
-DELETE,/v2/user/denemekullanici,HTTPError('404 Client Error: Not Found for url: /v2/user/denemekullanici'),4133

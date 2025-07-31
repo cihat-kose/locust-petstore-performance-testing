@@ -1,20 +1,25 @@
+import os
 from locust import HttpUser, between, task
 
 
+USER_NAME = "denemekullanici"
+
+
 class WebsiteUser(HttpUser):
+    host = os.getenv("TARGET_HOST", "https://petstore.swagger.io")
     wait_time = between(5, 15)
 
     @task
     def user_create(self):
         payload = {
             "id": 249897,
-            "username": "denemekullanici",
+            "username": USER_NAME,
             "firstName": "deneme",
             "lastName": "kullanici",
-            "email": "denemekullanici@gmail.com",
+            "email": f"{USER_NAME}@gmail.com",
             "password": "123456789",
             "phone": "5962264319",
-            "userStatus": 0
+            "userStatus": 0,
         }
         self.client.post("/v2/user", json=payload)
 
@@ -28,14 +33,14 @@ class WebsiteUser(HttpUser):
             "email": "guncelkullanici@gmail.com",
             "password": "123456",
             "phone": "5952126585",
-            "userStatus": 0
+            "userStatus": 0,
         }
-        self.client.put("/v2/user/denemekullanici", json=payload)
+        self.client.put(f"/v2/user/{USER_NAME}", json=payload)
 
     @task
     def get_user_info(self):
-        self.client.get("/v2/user/denemekullanici")
+        self.client.get(f"/v2/user/{USER_NAME}")
 
     @task
     def user_delete(self):
-        self.client.delete("/v2/user/denemekullanici")
+        self.client.delete(f"/v2/user/{USER_NAME}")

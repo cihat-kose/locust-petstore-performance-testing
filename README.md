@@ -31,7 +31,7 @@ A Locust-based project designed to perform load and stress testing on the [Swagg
 
 ```
 locust-petstore-performance-testing/
-├── UserTest.py              # Locust task definitions
+├── locustfile.py            # Locust task definitions
 ├── requirements.txt         # Python dependencies
 ├── README.md                # Project documentation
 └── reports/                 # Test reports and CSV files
@@ -70,7 +70,7 @@ locust-petstore-performance-testing/
 
 1. **Start Locust**  
    ```bash
-   locust -f UserTest.py
+   locust -f locustfile.py
    ```
 
 2. **Access Locust Web Interface**  
